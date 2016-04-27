@@ -1,4 +1,9 @@
-$(document).on('ready', function() {
-    $('.1').html("x");
+$( document ).on( 'ready', function() {
+
+  $( 'td' ).on( 'click', function() {
+    $( this ).html( 'X' );
+  })
+
+
 
 })
