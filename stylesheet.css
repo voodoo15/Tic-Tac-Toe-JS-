@@ -3,7 +3,8 @@ td {
     width: 200px;
     height: 200px;
     text-align: center;
-    background-color: white
+    background-color: white;
+    font-size:  75px;
 }
 h1 {
     text-align: center;
