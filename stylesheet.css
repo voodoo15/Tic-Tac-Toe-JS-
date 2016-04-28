@@ -1,11 +1,35 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
 td {
     border: 2px solid black;
     width: 200px;
     height: 200px;
     text-align: center;
-    background-color: white;
     font-size:  75px;
 }
+
 h1 {
     text-align: center;
+}
+
+h3 {
+    text-align:  center;
+}
+
+.gameboard {
+  max-width:  600px;
+  max-height:  600px;
+  margin:  20px auto;
+}
+
+.button {
+  margin: 20px auto;
 }
