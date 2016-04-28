@@ -27,22 +27,21 @@ $( document ).on( 'ready', function() {
              gameState[ winningCombos[ i ][ 1 ] ] === gameState[ winningCombos[ i ][ 2 ] ] ) {
                gameOver = true;
         }
-        i++;
       }
     }
 
     $( 'td' ).on( 'click', function() {
 
       if ( activePlayer === 1 ) {
-        $( this ).html( 'X' ).addClass( 'X' );
-        gameState[ ( $( this ).attr( 'class' ) )[ 0 ] ] = 1;
-        console.log( ($( this ).attr( 'class' ) )[ 0 ] );
+        $( this ).html( 'X' );
+        gameState[ ( $( this ).attr( 'class' ) ) ] = 1;
+        console.log( ($( this ).attr( 'class' ) ) );
         activePlayer = 2;
       } else {
-        $( this ).html( 'O' ).addClass( 'X' );
-        gameState[ ( $( this ).attr( 'class' ) )[ 0 ] ] = 2;
+        $( this ).html( 'O' );
+        gameState[ ( $( this ).attr( 'class' ) ) ] = 2;
         activePlayer = 1;
-        console.log( ($( this ).attr( 'class' ) )[ 0 ] );
+        console.log( ($( this ).attr( 'class' ) ) );
       }
 
       winning();
