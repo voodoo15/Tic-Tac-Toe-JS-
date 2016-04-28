@@ -7,6 +7,7 @@
 
 $( document ).on( 'ready', function() {
 
+    var gameActive = true;
     var gameState = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
     var activePlayer = 1;
     var winningCombos = [
@@ -24,11 +25,13 @@ $( document ).on( 'ready', function() {
       //Because I change the player early before the win, I'm inverting the label
       if ( activePlayer === 1 ) {
         $( "#gametext" ).html( "O's have won!" );
+        console.log( "O wins" );
       } else {
         $( "#gametext" ).html( "X's have won!" );
+        console.log( " X wins" );
       }
-      $( 'td' ).off();
 
+      $( 'td' ).off();
     }
 
     function winning() {
@@ -38,6 +41,21 @@ $( document ).on( 'ready', function() {
              gameState[ winningCombos[ i ][ 1 ] ] === gameState[ winningCombos[ i ][ 2 ] ] ) {
                gameOver();
         }
+      }
+
+      //Check if game is a draw, loop through game state to see if 0's exist
+      gameActive = false;
+
+      for (i = 0; i < 9; i++) {
+         if ( gameState[ i ] === 0 ) {
+           gameActive = true;
+         }
+      }
+
+      console.log( "I'm here" );
+      if ( gameActive === false ) {
+        $( "#gametext" ).html( "Draw game" );
+        console.log( "Draw" );
       }
     }
 
@@ -54,13 +72,13 @@ $( document ).on( 'ready', function() {
         gameState[ ( $( this ).attr( 'class' ) ) ] = 2;
         $( '#gametext' ).html( "X's turn!" );
         activePlayer = 1;
-        console.log( ($( this ).attr( 'class' ) ) );
+        console.log( ( $( this ).attr( 'class' ) ) );
       }
 
       winning();
 
       $( this ).off();
-       console.log(activePlayer, gameState );
+       console.log( gameActive, activePlayer, gameState );
     })
 
 })
